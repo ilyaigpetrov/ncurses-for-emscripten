@@ -14,6 +14,6 @@ open http://localhost:8080/out.html
 ```
 
 
-# If You Want to Compile it Yourself
+# If You Want to Compile ncurses Yourself
 
 https://github.com/kripken/emscripten/issues/6766
