@@ -1,6 +1,6 @@
 # ncurses for emscripten
 
-ncurses 6.1 compiled by emscripten for usage in a browser.
+ncurses 6.1 compiled by emscripten for usage in a browser. They are compiled, loaded, but don't work! You are wanted to make it work!
 
 # HowTo
 
