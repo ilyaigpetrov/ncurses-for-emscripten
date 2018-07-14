@@ -13,7 +13,7 @@
     var mvprintw;
     var term = new Terminal();
     term.open(document.getElementById('terminal'));
-    var Module = {
+    window.Module = {
       preRun: [() => {
         ENV.TERM = 'xterm';
       }],
