@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" type="text/css" href="xterm/xterm.css">
+  <script type="text/javascript" src="xterm/xterm.js"></script>
+</head>
+<body>
+  <div id="terminal"></div>
+  <script type="text/javascript">
+    'use strict';
+    /* globals Module, Terminal, ENV */
+
+    var mvprintw;
+    var term = new Terminal();
+    term.open(document.getElementById('terminal'));
+    var Module = {
+      preRun: [() => {
+        ENV.TERM = 'xterm';
+      }],
+      postRun: [function() {
+
+      }],
+      print: (stdout) => term.write(stdout),
+      printErr: (stderr) => console.error('printErr:', stderr)
+    };
+
+  </script>
+  <script src="compiled.js" async></script>
+</body>
+</html>
