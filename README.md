@@ -11,10 +11,6 @@ ncurses 6.1 compiled by emscripten for usage in a browser. They are compiled, lo
 vim hello.c
 vim min-shell.html
 ./hello.sh
-# If you get error like:
-#   stdlib.h:51:7: error: expected identifier or '('
-#   char *getenv (const char *);
-# Then just comment out that line 51 in stdlib.h.
 # Launch your favorite http-server to serve ./ (mine is: https://www.npmjs.com/package/http-server)
 # Open http://localhost:8080/index.html in the browser
 ```
