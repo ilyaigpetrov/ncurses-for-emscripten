@@ -78,8 +78,8 @@ mostlyclean :
 clean:	mostlyclean
 	rm -f terminfo.5
 
-../edit_man.sed : make_sed.sh /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man/man_db.renames
-	$(SHELL) $(srcdir)/make_sed.sh /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man/man_db.renames >../edit_man.sed
+../edit_man.sed : make_sed.sh /home/ilyaigpetrov/Repos/ncurses-6.1/man/man_db.renames
+	$(SHELL) $(srcdir)/make_sed.sh /home/ilyaigpetrov/Repos/ncurses-6.1/man/man_db.renames >../edit_man.sed
 
 distclean realclean: clean
 	rm -f Makefile *-config.1 ../edit_man.* ../man_alias.*

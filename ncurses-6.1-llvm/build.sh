@@ -1,0 +1,1 @@
+emconfigure ./configure --with-trace

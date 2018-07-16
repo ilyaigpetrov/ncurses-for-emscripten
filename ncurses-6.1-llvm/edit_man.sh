@@ -60,8 +60,8 @@ case $i in
 	fi
 
 	# replace variables in man page
-	if test ! -f /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man_alias.sed ; then
-cat >>/home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man_alias.sed <<-CF_EOF2
+	if test ! -f /home/ilyaigpetrov/Repos/ncurses-6.1/man_alias.sed ; then
+cat >>/home/ilyaigpetrov/Repos/ncurses-6.1/man_alias.sed <<-CF_EOF2
 		s,@DATADIR@,$datadir,g
 		s,@TERMINFO@,${TERMINFO:="no default value"},g
 		s,@TERMINFO_DIRS@,${TERMINFO_DIRS:="no default value"},g
@@ -80,7 +80,7 @@ s,@TOE@,toe,g
 s,@TPUT@,tput,g
 s,@TSET@,tset,g
 CF_EOF2
-		echo "...made /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man_alias.sed"
+		echo "...made /home/ilyaigpetrov/Repos/ncurses-6.1/man_alias.sed"
 	fi
 
 	aliases=
@@ -93,16 +93,16 @@ CF_EOF2
 	fi
 	nCurses=ignore.3x
 	test yes = yes && nCurses=ncurses.3x
-	aliases=`sed -f $top_srcdir/man/manlinks.sed $inalias |sed -f /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man_alias.sed | sort -u; test $inalias = $nCurses && echo curses`
-	cf_target=`grep "^$cf_source" /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man/man_db.renames | mawk '{print $2}'`
+	aliases=`sed -f $top_srcdir/man/manlinks.sed $inalias |sed -f /home/ilyaigpetrov/Repos/ncurses-6.1/man_alias.sed | sort -u; test $inalias = $nCurses && echo curses`
+	cf_target=`grep "^$cf_source" /home/ilyaigpetrov/Repos/ncurses-6.1/man/man_db.renames | mawk '{print $2}'`
 	if test -z "$cf_target" ; then
 		echo '? missing rename for '$cf_source
 		cf_target="$cf_source"
 	fi
 	cf_target="$cf_subdir${section}/${cf_target}"
 
-	sed	-f /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/man_alias.sed \
-		< $i | sed -f /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/edit_man.sed >$TMP
+	sed	-f /home/ilyaigpetrov/Repos/ncurses-6.1/man_alias.sed \
+		< $i | sed -f /home/ilyaigpetrov/Repos/ncurses-6.1/edit_man.sed >$TMP
 if test $cf_tables = yes ; then
 	tbl $TMP >$TMP.out
 	mv $TMP.out $TMP

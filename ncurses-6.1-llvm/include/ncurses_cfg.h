@@ -109,6 +109,7 @@
 #define GCC_UNUSED __attribute__((unused))
 #define GCC_NORETURN __attribute__((noreturn))
 #define HAVE_NC_ALLOC_H 1
+#define HAVE__TRACEF 1
 #define HAVE_GETTIMEOFDAY 1
 #define STDC_HEADERS 1
 #define HAVE_DIRENT_H 1

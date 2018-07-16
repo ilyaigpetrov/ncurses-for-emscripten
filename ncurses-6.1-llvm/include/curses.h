@@ -86,7 +86,7 @@
 #define NCURSES_CONST const
 
 #undef NCURSES_INLINE
-#define NCURSES_INLINE inline
+#define NCURSES_INLINE 
 
 /*
  * The standard type used for color values, and for color-pairs.  The latter

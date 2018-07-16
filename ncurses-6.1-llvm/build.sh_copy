@@ -1,0 +1,1 @@
+emconfigure ./configure --with-trace CPPFLAGS="-include \"string.h\" -Ugetenv -D'getenv(name)=(char*)({ char* volat = getenv(name); int vlen = strlen(volat) + 1; char* dest = (char*)malloc(vlen * sizeof(char)); strcpy(dest, volat); dest; })' $CPPFLAGS"

@@ -46,12 +46,12 @@ MODEL		= ../objects
 DESTDIR		= 
 top_srcdir	= ..
 srcdir		= .
-prefix		= /usr
+prefix		= /home/ilyaigpetrov/Repos/ncurses-6.1/INSTALLED
 exec_prefix	= ${prefix}
 bindir		= ${exec_prefix}/bin
 libdir		= ${exec_prefix}/lib
 includedir	= ${prefix}/include
-includesubdir	= 
+includesubdir	= /ncurses
 
 INCLUDEDIR	= $(DESTDIR)$(includedir)$(includesubdir)
 
@@ -108,7 +108,7 @@ NCURSES_MINOR	= 1
 REL_VERSION     = 6.1
 ABI_VERSION	= 6
 
-LOCAL_LIBDIR	= /home/ilyaigpetrov/Repos/emsdk/hello-ncurses/ncurses-6.1/lib
+LOCAL_LIBDIR	= /home/ilyaigpetrov/Repos/ncurses-6.1/lib
 
 LINK		=  $(LIBTOOL_LINK) 
 SHLIB_DIRS	= -L../lib
@@ -299,7 +299,7 @@ lintlib :
 #  DoLinks:       yes
 #  rmSoLocs:      no
 #  ldconfig:      /sbin/ldconfig
-#  overwrite:     yes
+#  overwrite:     no
 #  depend:        ../include/ncurses_cfg.h
 #  host:          x86_64-pc-linux-gnu
 
@@ -411,7 +411,7 @@ mostlyclean::
 #  DoLinks:       yes
 #  rmSoLocs:      no
 #  ldconfig:      /sbin/ldconfig
-#  overwrite:     yes
+#  overwrite:     no
 #  depend:        ../include/ncurses_cfg.h
 #  host:          x86_64-pc-linux-gnu
 

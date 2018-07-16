@@ -10,13 +10,13 @@
  void
 _nc_toggle_attr_on (attr_t *S, attr_t at)
 {
- { if (((int)((((unsigned long)(at) & ((chtype)((((1U) << 8) - 1U)) << ((0) + 8))) >> 8))) > 0) { (*S) = ((*S) & ALL_BUT_COLOR) | (attr_t) (at); } else { (*S) |= (attr_t) (at); } ;};
+ { if (((int)((((unsigned long)(at) & ((chtype)((((1U) << 8) - 1U)) << ((0) + 8))) >> 8))) > 0) { (*S) = ((*S) & ALL_BUT_COLOR) | (attr_t) (at); } else { (*S) |= (attr_t) (at); } if ((_nc_tracing & (0x1000))) _tracef ("new attribute is %s", _traceattr((*S)));};
 }
 
  void
 _nc_toggle_attr_off (attr_t *S, attr_t at)
 {
- { if (((int)((((unsigned long)(at) & ((chtype)((((1U) << 8) - 1U)) << ((0) + 8))) >> 8))) > 0) { (*S) &= ~(at|((chtype)((((1U) << 8) - 1U)) << ((0) + 8))); } else { (*S) &= ~(at); } ;};
+ { if (((int)((((unsigned long)(at) & ((chtype)((((1U) << 8) - 1U)) << ((0) + 8))) >> 8))) > 0) { (*S) &= ~(at|((chtype)((((1U) << 8) - 1U)) << ((0) + 8))); } else { (*S) &= ~(at); } if ((_nc_tracing & (0x1000))) _tracef ("new attribute is %s", _traceattr((*S)));};
 }
 
  int

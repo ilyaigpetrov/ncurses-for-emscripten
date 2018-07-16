@@ -57,7 +57,7 @@ includedir	= ${prefix}/include
 includesubdir	= 
 libdir		= ${exec_prefix}/lib
 mandir		= ${datarootdir}/man
-pkgdir		= no
+pkgdir		= /usr/lib/x86_64-linux-gnu/pkgconfig
 
 include_dir	= ${includedir}${includesubdir}
 

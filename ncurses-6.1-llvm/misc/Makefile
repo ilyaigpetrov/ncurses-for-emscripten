@@ -72,7 +72,7 @@ INSTALL_PROGRAM	= ${INSTALL}
 INSTALL_SCRIPT	= ${INSTALL}
 INSTALL_DATA	= ${INSTALL} -m 644
 
-PKG_CONFIG_LIBDIR = no
+PKG_CONFIG_LIBDIR = /usr/lib/x86_64-linux-gnu/pkgconfig
 
 ################################################################################
 all \
