@@ -20,5 +20,7 @@ vim min-shell.html
 These files make use of `./min-shell.html` and compile to `hello.html`, `worm.html`, `*.html`.
 Sometimes `index.html` fails, but `min-shell.html` works, that's why I recommend `*2.sh` files for a robust experience.
 
+---------------------
+
 [If You Want to Compile ncurses Yourself or Get More Debug Info from ncurses](./COMPILE.md)
 
