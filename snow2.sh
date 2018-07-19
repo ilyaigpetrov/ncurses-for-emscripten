@@ -1,6 +1,4 @@
 emcc ./snow.c \
-  -Ugetenv \
-  -D"getenv(name)=(char*) EM_ASM_INT ( {var envar = JSON.stringify(name);var ret=allocate(intArrayFromString(envar), 'i8', ALLOC_NORMAL);return ret ;}, NULL)" \
   -L ./ncurses-6.1-llvm/lib \
   -I ./ncurses-6.1-llvm/include \
   -lncurses_g \

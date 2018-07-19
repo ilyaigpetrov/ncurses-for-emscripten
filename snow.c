@@ -4,6 +4,7 @@
 #endif
 
 #include <curses.h>
+#include <unistd.h>
 
 #ifdef __EMSCRIPTEN__
 #include <emscripten.h>
@@ -12,11 +13,12 @@
 void do_one_iteration() {
   mvprintw(5, 5, "*\n");
   refresh();
+  sleep(1);
 }
 
 int main() {
 
-  trace(TRACE_MAXIMUM);
+  //trace(TRACE_MAXIMUM);
 
   initscr();
   cbreak();
