@@ -7,8 +7,8 @@
 
 ## Emscripten's `getenv` is not Reentrant
 
-Ncurses expects getenv to be reentrant, but emscripten doesn't provide id.
-You may vote for a [request](https://github.com/kripken/emscripten/issues/6778) to privide reentrance.
+Ncurses expects getenv to be reentrant, but emscripten doesn't provide it.
+You may vote for a [request](https://github.com/kripken/emscripten/issues/6778) to provide reentrance.
 So, the first thing would be to patch emscripten getenv to be reentrant:
 1) `vim emsdk/emscripten/1.38.8/system/include/libc/stdlib.h`
 2) Replace line `char *getenv (const char *);` with this block:
@@ -30,7 +30,7 @@ char *getenv (const char *);
 })
 #endif
 ```
-3. run `emcc --clear-cache` and try to compile hello world after it to rebuild cache.
+3. run `emcc --clear-cache` and try to compile hello world after it to rebuild the cache.
 
 ## Understanding
 
@@ -55,7 +55,7 @@ From `INSTALL`:
 
 1. I don't know how to get use of `--with-build-cc` for compiling only two targets (`make_hash` and `make_keys`).
 2. In addition to `make_keys` and `make_hash` you will need to compile to x86 `report_offsets` also.
-You will also need terminfo database which I believe can't be compiled with `emmake make install`, so you have to use bare `make` and `make install`.
+You will also need terminfo database which I believe can't be compiled with `emmake make install`, so you have to use bare `make` and `make install` (not sure, should be checked).
 3. `mkdir ./INSTALLED`
 4. ``./configure --prefix=`pwd`/INSTALLED``
 5. `make`
@@ -98,6 +98,7 @@ replace on:
 init_keytry.h: make_keys$(BUILD_EXEEXT) keys.list
   ./make_keys_x86$(BUILD_EXEEXT) keys.list > $@
 ```
+and
 ```sh-session
 report_offsets$(BUILD_EXEEXT) : \
     $(srcdir)/report_offsets.c
@@ -135,12 +136,14 @@ int main()
   return 0;
 }
 ```
-23. Compile with `emcc ./hello.c -L ./ncurses-6.1/lib -I ./ncurses-6.1/include -lncurses_g --preload-file lib/terminfo@/home/web_user/.terminfo -o hello.html -s FORCE_FILESYSTEM=1`. `lncurses_g` is used for outputting debug messages.
-24. `vim hello.html`, add:
+23. `wget https://github.com/kripken/emscripten/blob/master/src/shell_minimal.html -O min-shell.html` (the link is from [here](https://kripken.github.io/emscripten-site/docs/compiling/Deploying-Pages.html)).
+24. `vim min-shell.html`, add:
 ```js
 ...
 var Module = {
   preRun: [function() {ENV.TERM='xterm-new'}],
 ...
 ```
-25. `emrun --no_browser --port 8080 .`, open http://localhost:8080/hello.html in a browser.
+    Also add [xterm.js](https://github.com/xtermjs/xterm.js), look at [./min-shell.html]([./min-shell.html) for details.
+25. Compile with `emcc ./hello.c -L ./ncurses-6.1/lib -I ./ncurses-6.1/include -lncurses_g --preload-file lib/terminfo@/home/web_user/.terminfo -o hello.html -s FORCE_FILESYSTEM=1 --shell-file ./min-shell.html`. `lncurses_g` is used for outputting debug messages. If this doesn't work for you, look up compile command in the [./hello2.sh](./hello2.sh).
+26. Run your favorite http server from `./`, open http://localhost:YOUR_PORT/hello.html in a browser.
