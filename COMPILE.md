@@ -40,7 +40,7 @@ From https://kripken.github.io/emscripten-site/docs/compiling/Building-Projects.
 > The simplest solution is usually to build the project twice: once natively, and once to JavaScript. When the JavaScript build procedure fails because a generated executable is not present, you can then copy that executable from the native build, and continue to build normally. This approach was successfully used for compiling Python (see tests/python/readme.md for more details).
 
 From `INSTALL`:
-> BUILDING NCURSES WITH A CROSS-COMPILER
+> BUILDING NCURSES WITH A CROSS-COMPILER  
   Ncurses can be built with a cross-compiler.  Some parts must be built
   with the host's compiler since they are used for building programs
   (e.g., ncurses/make_hash and ncurses/make_keys) that generate tables
