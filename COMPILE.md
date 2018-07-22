@@ -64,7 +64,7 @@ You will also need terminfo database which I believe can't be compiled with `emm
 8. `cp -r INSTALLED/share/terminfo ../lib/.`
 9. `cd ncurses`
 10. `cp make_hash make_hash_x86`
-11. `cp make_keys make_kesy_x86`
+11. `cp make_keys make_keys_x86`
 12. `cp report_offsets report_offsets_x86`
 13. `cd ..`
 14. `make clean`
