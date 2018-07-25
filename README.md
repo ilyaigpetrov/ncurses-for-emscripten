@@ -10,9 +10,15 @@ ncurses 6.1 compiled by emscripten for usage in a browser. They are compiled, lo
 ```sh-session
 vim hello.c
 vim min-shell.html
+./hello2.sh
+# Launch your favorite http-server to serve ./ (mine is: https://www.npmjs.com/package/http-server)
+# Open http://localhost:<YOUR_PORT>/hello.html in the browser
+```
+Alternative way:
+```sh-session
 ./hello.sh
 # Launch your favorite http-server to serve ./ (mine is: https://www.npmjs.com/package/http-server)
-# Open http://localhost:8080/index.html in the browser
+# Open http://localhost:<YOUR_PORT>/index.html in the browser
 ```
 
 # About `hello2.sh`, `worm2.sh`, `*2.sh`
