@@ -144,6 +144,6 @@ var Module = {
   preRun: [function() {ENV.TERM='xterm-new'}],
 ...
 ```
-Also add [xterm.js](https://github.com/xtermjs/xterm.js), look at [./min-shell.html](./min-shell.html) for details.  
-25. Compile with `emcc ./hello.c -L ./ncurses-6.1/lib -I ./ncurses-6.1/include -lncurses_g --preload-file lib/terminfo@/home/web_user/.terminfo -o hello.html -s FORCE_FILESYSTEM=1 --shell-file ./min-shell.html`. `lncurses_g` is used for outputting debug messages. If this doesn't work for you, look up compile command in the [./hello2.sh](./hello2.sh).
+  Also add [xterm.js](https://github.com/xtermjs/xterm.js), look at [./min-shell.html](./min-shell.html) for details.  
+25. Compile with `emcc ./hello.c -L ./ncurses-6.1/lib -I ./ncurses-6.1/include -lncurses_g --preload-file lib/terminfo@/home/web_user/.terminfo -o hello.html -s FORCE_FILESYSTEM=1 --shell-file ./min-shell.html`. `lncurses_g` is used for outputting debug messages. If this doesn't work for you, look up compile command in the [./hello2.sh](./hello2.sh).  
 26. Run your favorite http server from `./`, open http://localhost:YOUR_PORT/hello.html in a browser.
